@@ -2,7 +2,9 @@
  Flyweight Pattern
  Saves memory by sharing portions of an object between objects
  - Only usable if you have **large number of objects**. Like a LOT. (> 1000000)
- Sees if an object was used, and reuse that, don't create another one
+ 
+ Sees if an object with a combination of property values was already created, and reuse that, 
+ don't create another one
  */
 
 const Task = function(data) {
