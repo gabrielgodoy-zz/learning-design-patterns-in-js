@@ -44,8 +44,8 @@ Example of facade pattern is jQuery simpifying the complicated DOM API
 Add new functionality to an existing object without being intrusive
 
 ### Flyweight Pattern
-Conserves memory by sharing portions of an object between objects
-- Only usable if you have large number of objects
+Saves memory by sharing portions of an object between objects
+- Only usable if you have **large number of objects**. Like a LOT. (> 1000000)
 Sees if an object was used, and reuse that, don't create another one
 
 ---
