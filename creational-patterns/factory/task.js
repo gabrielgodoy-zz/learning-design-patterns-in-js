@@ -1,5 +1,5 @@
 // Task constructor
-// Aqui se cria Tasks
+// Task creator
 
 const Repo = require('./taskRepository')();
 
@@ -14,8 +14,8 @@ Task.prototype.complete = function() {
 };
 
 Task.prototype.save = function() {
-	// O método save de Task, chama o método save do taskRepository
-	// Quem salva a task é o taskRepository
+	// Save method of Task, calls save() method of taskRepository
+	// taskRepository is the one that saves
 	Repo.save(this);
 };
 

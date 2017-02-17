@@ -1,3 +1,8 @@
+/*
+Decorator Pattern
+Add new functionality to an existing object without being intrusive
+*/
+
 // Task Constructor
 const Task = function(name) {
 	this.name = name;

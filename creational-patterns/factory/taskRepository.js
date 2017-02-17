@@ -1,4 +1,4 @@
-// É aqui que se salva tasks no 'banco', e faz requisições por taks
+// Here tasks are saved to the database, and new requests for tasks are made
 
 const repo = function() {
 	const db = {};

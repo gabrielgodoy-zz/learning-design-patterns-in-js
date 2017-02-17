@@ -4,24 +4,23 @@ const Task = require('./task');
 // Importing a repoFactory instance, same as "new repoFactory"
 const repoFactory = require('./repoFactory2');
 
-// Importando repoFactory aqui é a mesma coisa que fazer:
+// Importing the repoFactory here is the same thing as:
 // const task = require('./taskRepository')();
 // const user = require('./taskRepository')();
 // const project = require('./taskRepository')();
-// São essa três linhas que o repofactory faz no repoList.forEach() dele
+// Are those three lines that the repofactory executes on its repoList.forEach()
 
-// Ao invés de dar um monte de require em todos os repositórios "task" "user" e "project"
-// Eu só precisei dar require no repoFactory. O repoFactory que dá o require dentro dele, 
-// e executa as funções que vem de cada require pra mim
+// Instead of giving a bunch of require in all repositories "task", "user" and "project"
+// I will only need to give require in repoFactory. The repoFactory that gives the require inside it,
+// and executes the functions that comes from each require to me
 
-// O autor quis fazer algo parecido com o "gulp-load-plugins"
-// O gulp-load-pplugins functiona como uma factory que vai dar require em todas as dependências 
-// que começarem com "gulp-" no package.json
+// Creating a mechanism similar to "gulp-load-plugins"
+// gulp-load-plugins works as a factory the will require all dependencies that begins with 'gulp-'
+// in package.json
 
 // repoFactory starts being an object like this
 const repoFactoryIsThatObject = {
-	// Esses métodos get() e save() vem dos repositórios que a Factory executa
-	// taskRepository
+	// Those methods get() and save() comes from the repositories that the Factory executes taskRepository
 	task: {
 		get(id) {
 			return {
@@ -58,26 +57,27 @@ const repoFactoryIsThatObject = {
 	}
 };
 
-// Aqui se cria de fato as tasks
-// Se cria as tasks passando como parâmetro na sua criação o objeto {name: 'Some Task'} 
-// que veio do banco de dados, trazido pelo método get do taskRepository
+// Here we create the tasks
+// Tasks are created by passing, on its creation moment,the object {name: 'Some Task'} as a parameter
+// that comes from the database, brought by taskRepository method
 
-// A intenção aqui está sendo criar novas tasks a partir de tasks que se pega do banco, através do taskRepository.get(id)
-const task1 = new Task(repoFactory.task.get(1)); // O objeto {name: 'Some Task'} é retornado aqui
-const task2 = new Task(repoFactory.task.get(2)); // O objeto {name: 'Some Task'} é retornado aqui
+// The intention here is to create new tasks with tasks that we get from the database,
+// with the taskRepository.get(id)
+const task1 = new Task(repoFactory.task.get(1)); // Object {name: 'Some Task'} is returned here
+const task2 = new Task(repoFactory.task.get(2)); // Object {name: 'Some Task'} is returned here
 console.log('task1 é ', JSON.stringify(task1));
 console.log('task2 é ', JSON.stringify(task2), '\n');
 
-// Pegando User com id 1 do banco de dados
+// Getting User with ID 1 on the database
 const user = repoFactory.user.get(1);
 console.log(`A variável user é "${JSON.stringify(user)}". O userRepository me entregou no get(id)`, '\n');
 
-// Pegando Project com id 1 do banco de dados
+// Getting User with ID 1 on the database
 const project = repoFactory.project.get(1);
 console.log(`A variável project agora é "${JSON.stringify(project)}". O projectRepository me entregou no get(id)`, '\n');
 
 task1.user = user;
 task1.project = project;
 
-// Eu pego do banco de dados  depois salvo ela aqui igualzinha
+// I get from the database then I save it here, as the same, without changes
 task1.save();

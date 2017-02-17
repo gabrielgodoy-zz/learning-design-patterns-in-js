@@ -1,3 +1,8 @@
+/*
+ Revealing Module Pattern
+ Wrap all functionality in a function and decide what will be public by returning it
+ */
+
 // Wrap all functionality in a function and decide what will be public by returning it
 
 let counter = (function() {

@@ -1,10 +1,10 @@
 const repoFactory = function() {
 	const repos = this;
 
-	// Lista de repositórios que a repoFactry vai dar require
-	// Essa lista poderia ser dinâmica, olhando por todos os arquivos de uma pasta por exemplo
-	// Esse array serve para adicionar propriedades no 'this' desse constructor
-	// E para dar require(REPOSITORY_PATH)() em cada source de cada objeto desse array
+	// List of repositories that the repoFactory will give require
+	// This list could be dynamic, looking for all files of a folder for example
+	// This array serves to add properties inside the/ 'this' of this constructor
+	// And to execute require(REPOSITORY_PATH)() in each source of each object in this array
 	const repoList = [{
 		name: 'task',
 		source: './taskRepository'

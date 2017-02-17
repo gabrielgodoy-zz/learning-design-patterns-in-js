@@ -1,3 +1,9 @@
+/*
+ Façade Pattern
+ Provide a simplified interface to a complicated system
+ Example of façade pattern is jQuery simpifying the complicated DOM API
+ */
+
 const Task = function(data) {
 	this.name = data.name;
 	this.priority = data.priority;

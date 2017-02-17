@@ -1,3 +1,10 @@
+/*
+ Flyweight Pattern
+ Conserves memory by sharing portions of an object between objects
+ - Only usable if you have large number of objects
+ Sees if an object was used, and reuse that, don't create another one
+ */
+
 const Task = function(data) {
 	this.flyweight = FlyweightFactory.get(data.project, data.priority, data.user, data.completed);
 	this.name = data.name;
@@ -30,34 +37,26 @@ const FlyweightFactory = function() {
 	};
 	const getCount = function() {
 		let count = 0;
-		for (let f in flyweights) count++;
+
+		for (let f in flyweights) {
+			count++;
+		}
+
 		return count;
 	};
-	return {
-		get: get,
-		getCount: getCount
-	}
+	return { get, getCount };
 }();
 
 function TaskCollection() {
 	const tasks = {};
 	let count = 0;
-	const add = function(data) {
-		tasks[data.name] =
-			new Task(data);
+	const add = (data) => {
+		tasks[data.name] = new Task(data);
 		count++;
 	};
-	const get = function(name) {
-		return tasks[name];
-	};
-	const getCount = function() {
-		return count;
-	};
-	return {
-		add: add,
-		get: get,
-		getCount: getCount
-	};
+	const get = name => tasks[name];
+	const getCount = () => count;
+	return { add, get, getCount };
 }
 
 const tasks = new TaskCollection();
@@ -80,7 +79,7 @@ for (let i = 0; i < 1000000; i++) {
 }
 
 const afterMemory = process.memoryUsage().heapUsed;
-console.log('used memory ' + (afterMemory - initialMemory) / 1000000);
 
-console.log("tasks: " + tasks.getCount());
-console.log("flyweights: " + FlyweightFactory.getCount());
+console.log(`used memory: ${(afterMemory - initialMemory) / 1000000}`);
+console.log(`tasks: ${tasks.getCount()}`);
+console.log(`flyweights: ${FlyweightFactory.getCount()}`);

@@ -1,17 +1,20 @@
-// Create objects from functions
+/*
+ Constructor Pattern
+ Create objects from functions
+ */
 
 // ES5 and below syntax
-const Task = function(name) {
+const TaskES5 = function(name) {
 	this.name = name;
 	this.completed = false;
 };
 
-Task.prototype.complete = function() {
+TaskES5.prototype.complete = function() {
 	console.log('completing task: ' + this.name);
 	this.completed = true;
 };
 
-Task.prototype.save = function() {
+TaskES5.prototype.save = function() {
 	console.log('saving Task: ' + this.name);
 };
 
@@ -24,15 +27,11 @@ class Task {
 	}
 
 	complete() {
-		console.log('completing task: ' + this.name);
+		console.log(`completing task: ${this.name}`);
 		this.completed = true;
 	}
 
 	save() {
-		console.log('saving Task: ' + this.name);
-	}
-
-	giveBanana() {
-		banana = false;
+		console.log(`saving Task: ${this.name}`);
 	}
 }

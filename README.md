@@ -3,7 +3,7 @@
 Some practical design patterns adapted to JS 
 
 ## Creational Patterns
-Revealing Module Pattern
+### Revealing Module Pattern
 Wrap all functionality in a function and decide what will be public by returning it
 
 ### Constructor Pattern
@@ -25,6 +25,8 @@ Modules in Node CommonJS are cached after the first time they are loaded. Thi me
 If you want to have a module execute code multiple times, then export a function, and call that function.
 module.exports = myFunction();
 
+
+
 ---
 
 ## Structural Patterns 
@@ -36,7 +38,7 @@ Concerned with how objects are made up and simplify relationships between object
 
 ### Façade Pattern
 Provide a simplified interface to a complicated system
-Example jQuery
+Example of facade pattern is jQuery simpifying the complicated DOM API
 
 ### Decorator Pattern
 Add new functionality to an existing object without being intrusive
